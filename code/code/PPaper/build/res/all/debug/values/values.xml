@@ -3,9 +3,11 @@
 
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="border_radius">50dp</dimen>
 
     <string name="action_char_launcher">Charakter</string>
     <string name="action_dice_launcher">Würfel</string>
+    <string name="action_notes_launcher">Notizen</string>
     <string name="action_rules_launcher">Regeln</string>
     <string name="action_settings">Settings</string>
     <string name="app_name">PPaper</string>

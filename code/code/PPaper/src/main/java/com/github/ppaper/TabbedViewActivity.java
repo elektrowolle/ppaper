@@ -15,8 +15,8 @@ public class TabbedViewActivity extends Activity implements ActionBar.TabListene
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    ActionBar.Tab charTab,  diceTab,  rulesTab;
-    Fragment      charFrag, diceFrag, rulesFrag;
+    ActionBar.Tab charTab,  diceTab,  rulesTab,  notesTab;
+    Fragment      charFrag, diceFrag, rulesFrag, notesFrag;
 
     public enum FragmentViews{
         CHAR,DICE,RULES,NOTES
@@ -28,10 +28,12 @@ public class TabbedViewActivity extends Activity implements ActionBar.TabListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Change the ActionBar, so it will be possible to choose Tabs
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         actionBar.setDisplayShowTitleEnabled(false);
 
+        //Generate new tabs
         charTab  = actionBar.newTab()
                 .setText(R.string.action_char_launcher)
                 .setTabListener(this);
@@ -44,9 +46,15 @@ public class TabbedViewActivity extends Activity implements ActionBar.TabListene
                 .setText(R.string.action_rules_launcher)
                 .setTabListener(this);
 
-        actionBar.addTab(charTab);
-        actionBar.addTab(diceTab);
+        notesTab = actionBar.newTab()
+                .setText(R.string.action_notes_launcher)
+                .setTabListener(this);
+
+        //Add them to the Actionbar
+        actionBar.addTab( charTab);
+        actionBar.addTab( diceTab);
         actionBar.addTab(rulesTab);
+        actionBar.addTab(notesTab);
     }
 
     @Override
@@ -58,8 +66,6 @@ public class TabbedViewActivity extends Activity implements ActionBar.TabListene
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-        if(tab == charTab)
-            Log.d(this.toString(), "charTab");
 
         if(tab == diceTab){
             Log.d(this.toString(), "dice");
@@ -71,8 +77,15 @@ public class TabbedViewActivity extends Activity implements ActionBar.TabListene
 
         }
 
-        if(tab == rulesTab)
+        if(tab == rulesTab){
             Log.d(this.toString(), "rules");
+
+            if(rulesFrag == null)
+                rulesFrag = new RulesView();
+
+            fragmentTransaction.replace(android.R.id.content, rulesFrag);
+
+        }
 
     }
 
