@@ -11,5 +11,11 @@
     </string>
     <string name="title_section3" >Section 3
     </string>
+    <string name="action_char_launcher" >Charakter
+    </string>
+    <string name="action_dice_launcher" >Würfel
+    </string>
+    <string name="action_rules_launcher" >Regeln
+    </string>
 
 </resources>

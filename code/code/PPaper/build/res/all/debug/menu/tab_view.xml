@@ -1,6 +1,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never" />
+          android:title="@string/action_settings"
+          android:orderInCategory="100"
+          android:showAsAction="never" />
+    <!--<item android:id="@+id/action_char_launcher"
+          android:title="@string/action_char_launcher"
+          android:showAsAction="ifRoom|withText" />
+    <item android:id="@+id/action_dice_launcher"
+          android:title="@string/action_dice_launcher"
+          android:showAsAction="ifRoom|withText" />
+    <item android:id="@+id/action_rules_launcher"
+          android:title="@string/action_rules_launcher"
+          android:showAsAction="ifRoom|withText"
+          android:actionViewClass="android.widget.SearchView" />-->
 </menu>
