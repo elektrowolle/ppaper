@@ -6,7 +6,7 @@ import android.os.Bundle;
 /**
  * Created by binky on 29/05/13.
  */
-public class TabViewTest extends Activity {
+public class TabbedViewActivityTest extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }

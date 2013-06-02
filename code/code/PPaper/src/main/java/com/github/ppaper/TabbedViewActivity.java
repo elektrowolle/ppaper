@@ -1,8 +1,5 @@
 package com.github.ppaper;
 
-import java.io.Console;
-import java.util.Locale;
-
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -13,13 +10,19 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Menu;
 
-public class TabView extends Activity implements ActionBar.TabListener {
+public class TabbedViewActivity extends Activity implements ActionBar.TabListener {
 
     /**
      * The {@link ViewPager} that will host the section contents.
      */
     ActionBar.Tab charTab,  diceTab,  rulesTab;
     Fragment      charFrag, diceFrag, rulesFrag;
+
+    public enum FragmentViews{
+        CHAR,DICE,RULES,NOTES
+    }
+
+    FragmentViews startView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +73,7 @@ public class TabView extends Activity implements ActionBar.TabListener {
 
         if(tab == rulesTab)
             Log.d(this.toString(), "rules");
+
     }
 
     @Override
@@ -81,5 +85,20 @@ public class TabView extends Activity implements ActionBar.TabListener {
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 
     }
+
+    public void showDiceView(){
+        startView = FragmentViews.DICE;
+    }
+
+    public void showCharsView(){
+        startView = FragmentViews.CHAR;
+    }
+    public void showNotesView(){
+        startView = FragmentViews.NOTES;
+    }
+    public void showRulesView(){
+        startView = FragmentViews.RULES;
+    }
+
 
 }
